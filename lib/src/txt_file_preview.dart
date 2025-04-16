@@ -73,7 +73,8 @@ class TxtPreviewScreenState extends State<TxtPreviewScreen> {
               body: AnimatedSwitcher(
                   duration: const Duration(milliseconds: 280),
                   child: Padding(
-                    padding: widget.padding!,
+                    padding:
+                        widget.padding ?? const EdgeInsets.only(bottom: 68),
                     child: Text(snapshot.hasData
                         ? snapshot.requireData
                         : "No TXT Data Loaded"),

@@ -5,7 +5,7 @@ homepage: https://github.com/Shonu72/
 repository: https://github.com/Shonu72/universal_file_viewer
 
 environment:
-  sdk: ">=3.4.0 <4.0.0"
+  sdk: ">=2.17.0 <4.0.0"
   flutter: ">=1.17.0"
 
 platforms:
@@ -17,11 +17,11 @@ dependencies:
   flutter:
     sdk: flutter
 
-  open_file: ^3.5.10
+  open_filex: ^4.7.0
   video_player: ^2.9.3
-  pdfrx: ^1.1.11
+  pdfrx: 1.0.101
   excel: ^4.0.6
-  path: ^1.9.1
+  path: ^1.9.0
   path_provider: ^2.1.5
   archive: ^3.6.1
   xml: ^6.5.0

@@ -707,7 +707,7 @@ class DocxExtractor {
         return BorderSide(color: color, width: width, style: BorderStyle.solid);
       case 'threeDEmboss':
       case 'threeDEngrave':
-        return BorderSide(color: color.withValues(alpha: 0.8), width: width);
+        return BorderSide(color: color.withOpacity(0.8), width: width);
       default:
         return BorderSide.none;
     }
@@ -761,16 +761,22 @@ class DocxExtractor {
       switch (pStyle) {
         case 'Heading1':
           style = style.copyWith(fontSize: 32, fontWeight: FontWeight.bold);
+          break;
         case 'Heading2':
           style = style.copyWith(fontSize: 28, fontWeight: FontWeight.bold);
+          break;
         case 'Heading3':
           style = style.copyWith(fontSize: 24, fontWeight: FontWeight.bold);
+          break;
         case 'Heading4':
           style = style.copyWith(fontSize: 20, fontWeight: FontWeight.bold);
+          break;
         case 'Heading5':
           style = style.copyWith(fontSize: 18, fontWeight: FontWeight.bold);
+          break;
         case 'Heading6':
           style = style.copyWith(fontSize: 16, fontWeight: FontWeight.bold);
+          break;
         default:
           break;
       }
