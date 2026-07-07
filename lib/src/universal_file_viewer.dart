@@ -3,6 +3,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:open_filex/open_filex.dart';
 import 'package:pdfrx/pdfrx.dart';
 import 'package:universal_file_viewer/src/excel_csv_file_preview.dart';
 import 'package:universal_file_viewer/src/txt_file_preview.dart';
@@ -55,11 +56,41 @@ class UniversalFileViewer extends StatelessWidget {
           return TxtPreviewScreen(file: file, padding: padding);
         case FileType.md:
           return MdPreviewScreen(file: file, padding: padding);
+        case FileType.ppt:
+          return _SystemPreviewFallback(file: file);
       }
     } else {
       return const Center(
         child: Text('File type not supported'),
       );
     }
+  }
+}
+
+class _SystemPreviewFallback extends StatelessWidget {
+  final File file;
+
+  const _SystemPreviewFallback({required this.file});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text('PowerPoint inline preview is not supported yet.'),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+                OpenFilex.open(file.path);
+              },
+              child: const Text('Open in system preview'),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
